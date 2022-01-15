@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
+import 'custom_paint/clock.dart';
 import 'custom_paint/pie_chart.dart';
 
 void main() {
@@ -10,11 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Custom Paint',
+      title: 'Wall Clock',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Custom Paint'),
+      home: MyHomePage(title: 'Wall Clock'),
     );
   }
 }
@@ -43,16 +47,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView(
-        children: <Widget>[
-          Container(
-            height: 400,
-            width: 400,
-            child: CustomPaint(
-              painter: PieChartPainter(),
-            ),
-          )
-        ],
+      body: Container(
+        color: Color(0xFF2D2F41),
+        alignment: Alignment.center,
+        child: Container(
+          height: 300,
+          width: 300,
+          child: Transform.rotate(
+            angle: -pi / 2,
+            child: ClockWidget(),
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
