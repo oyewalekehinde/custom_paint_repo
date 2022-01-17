@@ -21,8 +21,11 @@ class _ClockWidgetState extends State<ClockWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: ClockPaint(),
+    return Transform.rotate(
+      angle: -pi / 2,
+      child: CustomPaint(
+        painter: ClockPaint(),
+      ),
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-import 'custom_paint/clock.dart';
-import 'custom_paint/pie_chart.dart';
+import 'custom_paint/slider.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Wall Clock'),
+      home: MyHomePage(title: 'Slider'),
     );
   }
 }
@@ -51,12 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Color(0xFF2D2F41),
         alignment: Alignment.center,
         child: Container(
-          height: 300,
-          width: 300,
-          child: Transform.rotate(
-            angle: -pi / 2,
-            child: ClockWidget(),
-          ),
+          child: SliderCustomWidget(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
