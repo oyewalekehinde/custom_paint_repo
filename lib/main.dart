@@ -1,7 +1,5 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-
-import 'custom_paint/slider.dart';
+import 'custom_paint/music_player.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Slider'),
+      home: MyHomePage(title: 'Music Player'),
     );
   }
 }
@@ -31,14 +29,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Color(0xFF2D2F41),
         alignment: Alignment.center,
         child: Container(
-          child: SliderCustomWidget(),
+          child: MusicPlayer(),
         ),
       ),
       // floatingActionButton: FloatingActionButton(
