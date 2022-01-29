@@ -25,17 +25,15 @@ class _MusicPlayerState extends State<MusicPlayer> {
       height: 200,
       width: 200,
       child: CustomPaint(
-        painter: MusicPlayerPainter(
-            height: List.generate(73, (index) => Random().nextInt(50))),
+        painter: MusicPlayerPainter(),
       ),
     );
   }
 }
 
 class MusicPlayerPainter extends CustomPainter {
-  final List<int> height;
+  final List<int> height = List.generate(73, (index) => Random().nextInt(50));
 
-  MusicPlayerPainter({required this.height});
   @override
   void paint(Canvas canvas, Size size) {
     var centerX = size.width / 2;
