@@ -97,6 +97,10 @@ class _SliderRangeWidgetState extends State<SliderRangeWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                "What is your budget per night",
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
               SizedBox(
                 width: widthSize,
                 child: Row(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custom_paint/slider_2.dart';
+import 'custom_paint/money_range.dart';
 
 void main() {
   runApp(MyApp());
