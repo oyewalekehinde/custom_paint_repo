@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custom_paint/money_range.dart';
+import 'custom_paint/money_range_2.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Range Slider'),
+      home: MyHomePage(title: 'Money Slider'),
     );
   }
 }
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Color(0xFF2D2F41),
         alignment: Alignment.center,
         child: Container(
-          child: SliderRangeWidget(),
+          child: MoneyRange(),
         ),
       ),
       // floatingActionButton: FloatingActionButton(
