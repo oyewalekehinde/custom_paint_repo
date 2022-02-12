@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'custom_paint/money_range_2.dart';
+import 'custom_paint/clock.dart';
+import 'custom_paint/compass.dart';
+import 'custom_paint/music_player.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Money Slider'),
+      home: MyHomePage(title: 'Music Player'),
     );
   }
 }
@@ -32,16 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color(0xFF2D2F41),
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   title: Text(widget.title),
+      // ),
       body: Container(
-        color: Color(0xFF2D2F41),
+        color: Colors.black,
         alignment: Alignment.center,
         child: Container(
-          child: MoneyRange(),
+          child: CompassWidget(),
         ),
       ),
       // floatingActionButton: FloatingActionButton(

@@ -32,7 +32,22 @@ class _MusicPlayerState extends State<MusicPlayer> {
 }
 
 class MusicPlayerPainter extends CustomPainter {
-  final List<int> height = List.generate(73, (index) => Random().nextInt(50));
+  final List<int> height = List.generate(73, (index) => Random().nextInt(35));
+  Color getColor(value) {
+    if (value <= 60) {
+      return Colors.blue;
+    } else if (value <= 120) {
+      return Colors.green;
+    } else if (value <= 180) {
+      return Colors.red;
+    } else if (value <= 240) {
+      return Colors.yellow;
+    } else if (value <= 300) {
+      return Colors.purple;
+    } else {
+      return Colors.orange;
+    }
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -59,9 +74,15 @@ class MusicPlayerPainter extends CustomPainter {
       var y1 = centerX + outerCicrle * sin(i * pi / 180);
       var x2 = centerX + (innerCicrle + currentHeight) * cos(i * pi / 180);
       var y2 = centerX + (innerCicrle + currentHeight) * sin(i * pi / 180);
-      canvas.drawLine(Offset(x1, y1), Offset(x2, y2), linePaint);
+      canvas.drawLine(
+          Offset(x1, y1),
+          Offset(x2, y2),
+          Paint()
+            ..strokeWidth = 4
+            ..color = getColor(i)
+            ..style = PaintingStyle.stroke
+            ..strokeCap = StrokeCap.round);
     }
-    // canvas.drawCircle(circleCenter, radius, circlePaint);
   }
 
   @override
