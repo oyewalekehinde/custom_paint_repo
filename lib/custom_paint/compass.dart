@@ -42,18 +42,13 @@ class _CompassWidgetState extends State<CompassWidget> {
                 return Center(
                   child: Text("Device does not have sensors !"),
                 );
-              return
-                  // Transform.rotate(
-                  //   angle: (direction * (pi / 180) * -1),
-                  //   child:
-
-                  Column(
+              return Column(
                 children: [
                   SizedBox(
                     height: 130,
                   ),
                   Transform.rotate(
-                    angle: -pi / 2,
+                    angle: 0,
                     child: Container(
                       height: 300,
                       width: 300,
@@ -209,11 +204,26 @@ class CompassPainter extends CustomPainter {
           Offset(tx - textPainter.width / 2, ty - textPainter.height / 2));
       canvas.restore();
     }
+    canvas.drawCircle(
+        centerCircle,
+        tRadiusTriangle,
+        Paint()
+          ..color = Colors.red
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1);
+    canvas.drawLine(
+        centerCircle,
+        Offset(centerX + tRadiusTriangle * cos(direction * pi / 180),
+            centerY + tRadiusTriangle * sin(direction * pi / 180)),
+        Paint()
+          ..color = Colors.blue
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1);
     for (int i = 0; i <= 360; i += 90) {
       var tx = centerX + tRadiusDirection * cos(i * pi / 180);
       var ty = centerX + tRadiusDirection * sin(i * pi / 180);
-      var txTriangle = centerX + tRadiusTriangle * cos(i * pi / 180);
-      var tyTriangle = centerX + tRadiusTriangle * sin(i * pi / 180);
+      var txTriangle = centerX + tRadiusTriangle * cos(direction * pi / 180);
+      var tyTriangle = centerX + tRadiusTriangle * sin(direction * pi / 180);
       final textStyle = TextStyle(
           color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -240,7 +250,10 @@ class CompassPainter extends CustomPainter {
       trianglePath.lineTo(txTriangle + 10, tyTriangle);
       trianglePath.lineTo(txTriangle, tyTriangle + 10);
       trianglePath.close();
+
       if (i == 0) canvas.drawPath(trianglePath, trianglePaint);
+      canvas.drawLine(Offset(txTriangle, tyTriangle - 40),
+          Offset(txTriangle, tyTriangle + 40), Paint()..color = Colors.white);
       canvas.save();
       final pivot = textPainter.size.center(
           Offset(tx - textPainter.width / 2, ty - textPainter.height / 2));
